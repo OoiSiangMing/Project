@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.welcome{
+	padding:35.5px;
+	text-align: left;
+	background-color: #54567A;
+}
+
+.about-section {
+  background-image: url("about_image.jpeg");
+  height: 350px;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  padding: 50px;
+  text-align: center;
+  color: black;
+}
+
+.navigation-bar{
+	padding:5px;
+	background-color: #54567A;
+}
+
+.navigation-bar h3{
+	text-align: center;
+	text-decoration-line: underline;
+}
+
+.nav-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 6px 100px;
+	position: relative;
+    text-hover:hover;
+	font-size: 16px;
+}
+
+.nav-links ul li a{
+	color: #EE8374;
+	text-decoration: none;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">    
+  <title>Youngor Fashion Store</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>	
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/03a09689fa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="checkout.css" />
+	<style>
+body {
+	background-color: #faeee3;
+}
+
+#section1 {
+}
+
+#section2 {
+}
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+	
+	#cat-section {
+}
+</style>
+  </head>
+  
+  <body>
+<div class="jumbotron">
+  <div class="container text-right">
+    <h1 class="title-text">Youngor</h1>      
+    <p class="title-text2"> Be young and towards the dream.</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+	  	  	<a href="index.html"><img class="logo" src="img/logo.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index_user.html">Home</a></li>
+        <li><a href="product_user.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="index_user.html#contact">Contact Us</a></li>
+		<li><div class="username"><p>Welcome, <span id="username" ></span></p></div></li>
+
+
+		<li><a><i class="fa-solid fa-cart-shopping" id="cart-icon"></i></a></li>
+      </ul>
+	  
+      <ul class="nav navbar-nav navbar-right">
+	  <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i></a></li></ul></ul>
+    </div>
+	
+  </div>
+
+</nav>
+
+
+	<main class="container">
+		<h1 class="heading">Checkout</h1>
+		<div class="item-flex">
+			<section class="checkout">
+				<form action="PaidPy.py" class="card-form">
+					<h2 class="section-heading">Recipient Info</h2>
+					<div class="recipient-form">
+						<div class="forms">
+							<div class="recipient-name">
+								<label for="recipient-name" class="label-default">Recipient's name</label>
+								<input type="text" name="recipient-name" id="recipient-name" class="input-default">
+							</div>
+							<div class="recipient-phone-number">
+								<label for="recipient-phone-number" class="label-default">Recipient's phone number</label>
+								<input type="number" name="recipient-phone-number" id="recipient-phone-number" class="input-default">
+							</div>
+							<div class="recipient-address">
+								<label for="recipient-address" class="label-default">Recipient's address</label>
+								<input type="text" name="recipient-address" id="recipient-address" class="input-default">
+							</div>
+						</div>
+					</div>
+					<h2 class="section-heading">Payment Details</h2>
+					<div class="payment-form">
+						<div class="payment-method">
+							<input type="radio" name="size" value="Debit/Credit Card" id="card" checked="checked">
+							<label for="card" class="card-method">Debit/Credit Card</label>
+						</div>
+						<div class="forms">
+							<div class="cardholder-name">
+								<label for="cardholder-name" class="label-default">Cardholder name</label>
+								<input type="text" name="cardholder-name" id="cardholder-name" class="input-default">
+							</div>
+							<div class="card-number">
+								<label for="card-number" class="label-default">Card number</label>
+								<input type="number" name="card-number" id="card-number" class="input-default">
+							</div>
+							<div class="input-flex">
+								<div class="expiry-date">
+									<label for="expiry-date" class="label-default">Expiry date</label>
+									<div class="input-flex">
+										<input type="number" name="day" id="expiry-date" placeholder="31" min="1" max="31" class="input-default">
+										/
+										<input type="number" name="month" id="expiry-date" placeholder="12" min="1" max="312" class="input-default">
+									</div>
+								</div>
+								<div class="cvv">
+									<label for="cvv" class="label-default">CVV</label>
+									<input type="number" name="cvv" id="cvv" class="input-default">
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary" id="c-pay-button">
+								<b>Pay</b> RM <span id="card-payAmount">0.00</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</section>
+
+			<section class="cart">
+				<div class="cart-item-box">
+					<h2 class="section-heading">Order Summary</h2>
+
+					<div class="product-card">
+						<div class="card">
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="wrapper">
+					<div class="amount">
+						<div class="subtotal">
+							<span>Subtotal</span> <span>RM <span id="checkout-subtotal">0.00</span></span>
+						</div>
+						<div class="discount">
+							<span>Discount</span> <span>-RM <span id="checkout-discount">0.00</span></span>
+						</div>
+						<div class="total">
+							<span>Total</span> <span>RM <span id="checkout-total">0.00</span></span>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+				<script src="checkoutjs_user.js"></script>
+
+</body>
+</html>

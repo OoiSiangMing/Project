@@ -1,0 +1,76 @@
+<html>
+
+<style>
+
+	body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	}
+
+	.welcome{
+	padding:35.5px;
+	text-align: left;
+	background-color: #54567A;
+	}
+
+	.about-section {
+	background-image: url("about_image.jpeg");
+	height: 350px;
+	background-position: center; 
+	background-repeat: no-repeat; 
+	padding: 50px;
+	text-align: center;
+	color: black;
+	}
+	
+	.update_stock{
+	padding:4px 40px;
+	background-color: #54567A;
+	}
+	
+	.update_stock{
+	color: #EE8374;
+	}
+
+}
+
+</style>
+
+    <body>
+	
+	<section> 
+	
+	<div class="welcome">
+       <h1> <img src="logo.png" width="100" height="55" style="vertical-align:middle;margin:-53px 50px"> Welcome to Stock Checking</h1> 
+    </div>
+		  
+	<div class="about-section">
+		<br><br><br><br><br><br>
+		<h1>UPDATE DATA</h1>
+	</div>
+	
+	    
+	<div class="update_stock">
+		<h1>Form Update Product Left</h1>
+        <hr>
+		
+		<h3> Updating Record by ProductID </h3>
+		
+        <form action="p_update_product.py" method="post">
+           productid : <INPUT type="text" name="productid"> <br><br>
+           productname: <INPUT type="text" name="productname"><br><br>
+		   productprice : <INPUT type="text" name="productprice"><br><br>
+		   Upload Photo : <INPUT type="file" name="productimage"><br><br>
+                      <INPUT type="submit" value="SUBMIT"> 
+                      <INPUT type="reset" value="Cancel">
+        </form>
+		
+	</div>
+    
+	</section>
+
+	</body> 
+</html>
+
+
+

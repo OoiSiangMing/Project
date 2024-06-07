@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Administration</title>
+    <link rel="stylesheet" href="adminlogin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2 style="text-align:center;">Youngor Administration Login</h2>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form action="adminlogin.py" class="login">
+
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input id="adminID" class="login__input" name="adminID" type="text" placeholder="adminID">
+                    </div>
+
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input name="password" class="login__input" type="password" placeholder="Password">
+                    </div>
+					
+                    <input id="login-btn" type="submit" class="login__submit" value="Login">
+                </form>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>        
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+    <script src="loginjs.js"></script>
+</body>
+</html>
