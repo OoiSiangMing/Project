@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">    
+  <title>Youngor Fashion Store</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>	
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/03a09689fa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="public/css/style.css" />
+	<style>
+body {
+	background-color: #faeee3;
+}
+
+#section1 {
+}
+
+#section2 {
+}
+
+
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+	
+	#cat-section {
+}
+</style>
+  </head>
+  
+  <body>
+
+<div class="jumbotron">
+  <div class="container text-right">
+    <h1 class="title-text">Youngor</h1>      
+    <p class="title-text2"> Be young and towards the dream. TEST</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+	  	  	<a href="index.html"><img class="logo" src="img/logo.png"></a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+		<li><div class="username"><p>Welcome, Guest<span id="username" ></span></p></div></li>
+
+
+		<li><a><i class="fa-solid fa-cart-shopping" id="cart-icon"></i></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+	  					<li><a href="login.html"><i class="fa-regular fa-user"></i> User</a></li>
+						<li><a href="adminlogin.html"><i class="fa-regular fa-user"></i> Admin</a></li>
+      </ul>
+</div>
+
+    </div>
+  </div>
+</nav>
+
+	<div class="body-header" style="background-image: url('img/header.jpg'); background-size:cover;" id="section1">
+  <h1 class="header-text";>“To wear dreams on one’s feet is to begin to give reality to one’s dreams;<br><br> To wear fashion on one's body is to begin the success to the life."</h1>
+  <br>
+  <br>
+  <br>
+  <a href="#section2">
+	 <button class="button"><span>Shop now</span></button> 
+  </a> </div>
+
+<section class="cat-container" id="section2">
+	<h2>Category</h2>
+	<br>
+	<div class="category">
+	<div class="product">
+		<span class="shop-item-title">Clothes</span>
+		<a href="product.html#Clothes">
+                    <img class="clothes" src="img/clothes.jpg"> </a>
+	</div>
+	<div class="product">
+		<span class="shop-item-title">Pants</span>
+				<a href="product.html#Pants">
+                    <img class="pants" src="img/pants.jpg"> </a>
+		</div>
+	<div class="product">
+		<span class="shop-item-title">Shoes & Accessories</span>
+				<a href="product.html#Shoes & Accessories">
+                    <img class="shoes" src="img/shoes.jpg"> </a>
+		</div>
+	</div>
+</section>
+
+<section class="Reason">
+		<div class="heading">
+			<h2>The Reason Choosing Youngor</h2>
+			<h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3>
+		</div>
+		<div class="features">
+			<div class="fe-box">
+				<i class="fa-sharp fa-solid fa-gem"></i>
+				<h6>High Quality Products</h6>
+			</div>
+			<div class="fe-box">
+				<i class="fa-solid fa-globe"></i>
+				<h6>Global Services</h6>
+			</div>
+			<div class="fe-box">
+				<i class="fa-solid fa-handshake"></i>
+				<h6>Comprehensive Services</h6>
+			</div>
+			<div class="fe-box">
+				<i class="fa-solid fa-landmark"></i>
+				<h6>Stay Safe<br>Stay Home</h6>
+			</div>
+			<div class="fe-box">
+				<i class="fa-solid fa-truck-fast"></i>
+				<h6>Free Shipping</h6>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<section class="Contact_Us">
+		<div class="contact">
+			<h1>Contact Us</h1> 
+			<p>You can reach us by email at "contact@youngor.com" or by phone at 1300-88-0000.</p>
+		</div>
+	</section>
+
+<br><br><br>
+
+
+	<section class="End">
+		<div class="footer">
+			<header>
+				<h1>Feedback</h1>
+			</header>
+			
+			<section id="contact">
+				<h2>Feedback</h2> <br>
+				<form action="submit-form.php" method="post">
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name"><br><br>
+					
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email"><br><br>
+					
+					<label for="message">Message:</label>
+					<textarea id="message" name="message"></textarea><br><br>
+					<input type="submit" value="Submit">
+				</form>
+			</section>
+		</div>
+	</section>
+	
+	<footer>
+		<p>Copyright &copy; 2023 Youngor</p>
+    </footer>
+  
+
+</body>
+</html>
