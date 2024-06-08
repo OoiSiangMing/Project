@@ -64,20 +64,20 @@
 .jumbotron {
   position: relative;
   margin-bottom: 0;
-  background-image: url('public/img/banner.jpg'); /* Specify the path to your image */
-  background-size: cover; /* Ensure the image covers the entire div */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  height: 100vh; /* Full viewport height, adjust as needed */
-  display: flex;
-  justify-content: flex-end; /* Align text container to the right */
-  align-items: center; /* Center text container vertically */
+}
+
+.jumbotron-img {
+  width: 100%;
+  height: auto;
 }
 
 .container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
   color: white; /* Ensure text color is visible on the image */
-  text-align: right; /* Align text to the right */
-  padding: 20px; /* Add padding around the text, adjust as needed */
+  text-align: right; /* This makes sure the text is right-aligned */
 }
 
 .title-text {
@@ -89,8 +89,6 @@
   font-size: 1.5em; /* Adjust as needed */
   margin: 0;
 }
-
-
 
 
 .logo{
