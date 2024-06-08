@@ -81,6 +81,14 @@
   text-align: right; /* This makes sure the text is right-aligned */
 }
 
+.title-text {
+  /* Add any additional styling for title text */
+}
+
+.title-text2 {
+  /* Add any additional styling for subtitle text */
+}
+
 .logo{
 	height: 60px;
 	margin-left: 0px;
