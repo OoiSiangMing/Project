@@ -70,7 +70,7 @@
     background-image: url('public/img/banner.jpg');
     background-size: cover;
     background-position: center; /* Center the background image */
-    height: 300px; /* Adjust the height as needed */
+    height: 20px; /* Adjust the height as needed */
 }
 
 .text-container {
