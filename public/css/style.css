@@ -62,10 +62,16 @@
   
    
 .jumbotron {
-	margin-bottom: 0;
-	background-image:url('public/img/banner.jpg'); 
-	background-size:cover;
-    }
+  position: relative;
+  margin-bottom: 0;
+  overflow: hidden; /* Ensures the content stays inside the jumbotron */
+}
+
+.jumbotron-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the image covers the jumbotron area */
+}
 	
 .logo{
 	height: 60px;
