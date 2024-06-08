@@ -62,15 +62,12 @@
   
    
 .jumbotron {
-  position: relative;
   margin-bottom: 0;
-  overflow: hidden; /* Ensures the content stays inside the jumbotron */
-}
-
-.jumbotron-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover; /* Ensures the image covers the jumbotron area */
+  background-image: url('public/img/banner.jpg'); 
+  background-size: cover;
+  height: 100vh; /* Adjust the height as needed */
+  position: relative;
+  color: white; /* Ensure text color is visible on the image */
 }
 
 .container {
@@ -78,16 +75,19 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  color: white; /* Ensure text color is visible on the image */
+  text-align: right; /* This makes sure the text is right-aligned */
 }
 
 .title-text {
-  /* Add any additional styling for title text */
+  font-size: 3em; /* Adjust as needed */
+  margin: 0;
 }
 
 .title-text2 {
-  /* Add any additional styling for subtitle text */
+  font-size: 1.5em; /* Adjust as needed */
+  margin: 0;
 }
+
 
 .logo{
 	height: 60px;
