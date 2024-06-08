@@ -64,10 +64,13 @@
 .jumbotron {
   position: relative;
   margin-bottom: 0;
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
 }
 
 .jumbotron-img {
-  width: 100%;
+  width: 50%; /* Adjust the width to make the image smaller */
   height: auto;
 }
 
