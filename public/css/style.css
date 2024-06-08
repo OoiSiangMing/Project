@@ -62,16 +62,12 @@
   
    
 .jumbotron {
-  position: relative;
   margin-bottom: 0;
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-}
-
-.jumbotron-img {
-  width: 10%; /* Adjust the width to make the image smaller */
-  height: auto;
+  background-image: url('public/img/banner.jpg'); 
+  background-size: cover;
+  height: 100vh; /* Adjust the height as needed */
+  position: relative;
+  color: white; /* Ensure text color is visible on the image */
 }
 
 .containerindex {
@@ -79,7 +75,6 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  color: white; /* Ensure text color is visible on the image */
   text-align: right; /* This makes sure the text is right-aligned */
 }
 
