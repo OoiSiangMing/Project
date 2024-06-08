@@ -63,7 +63,7 @@
    
 .jumbotron {
 	margin-bottom: 0;
-	background-image:url('img/banner.jpg'); 
+	background-image:url('public/img/banner.jpg'); 
 	background-size:cover;
     }
 	
