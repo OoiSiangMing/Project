@@ -73,6 +73,14 @@
   object-fit: cover; /* Ensures the image covers the jumbotron area */
 }
 	
+.container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: right; /* This makes sure the text is right-aligned */
+}
+
 .logo{
 	height: 60px;
 	margin-left: 0px;
