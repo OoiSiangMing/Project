@@ -62,10 +62,34 @@
   
    
 .jumbotron {
-	margin-bottom: 0;
-	background-image:url('public/img/banner.jpg'); 
-	background-size:cover;
-    }
+  position: relative;
+  margin-bottom: 0;
+}
+
+.jumbotron-img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: white; /* Ensure text color is visible on the image */
+  text-align: right; /* This makes sure the text is right-aligned */
+}
+
+.title-text {
+  font-size: 3em; /* Adjust as needed */
+  margin: 0;
+}
+
+.title-text2 {
+  font-size: 1.5em; /* Adjust as needed */
+  margin: 0;
+}
+
 
 
 .logo{
