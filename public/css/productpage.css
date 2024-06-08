@@ -65,10 +65,14 @@
     }
    
 .jumbotron {
-	margin-bottom: 0;
-	background-image:url('banner.jpg'); 
-	background-size:cover;
-    }
+    margin-bottom: 0;
+    position: relative; /* Ensure proper positioning for the child elements */
+}
+
+.banner-image {
+    width: 100%; /* Adjust the width of the image */
+    height: auto; /* Maintain aspect ratio */
+}
 
 .logo{
 	height: 60px;
