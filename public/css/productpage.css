@@ -66,17 +66,8 @@
    
 	.jumbotron {
 		margin-bottom: 0;
-		height: 300px; /* Adjust the height as needed */
-		position: relative; /* Make sure the text container can be positioned absolutely within this */
-	}
-	
-	.text-container {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		text-align: center;
-		color: white; /* Ensure text color is visible on the image */
+		background-image: url('public/img/banner.jpg'); 
+		background-size: cover;
 	}
 	
 	.title-text {
