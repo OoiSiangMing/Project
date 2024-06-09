@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">    
-  <title>Youngor Fashion Store</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>	
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/03a09689fa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="public/css/productpage.css"/>
-	<style>
-body {
-	background-color: #faeee3;
-}
-   
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-	
-	#cat-section {
-}
 
-</style>
-  </head>
-  
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Youngor Fashion Store</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/03a09689fa.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="public/css/productpage.css" />
+	<style>
+		body {
+			background-color: #faeee3;
+		}
+
+		/* Add a gray background color and some padding to the footer */
+		footer {
+			background-color: #f2f2f2;
+			padding: 25px;
+		}
+
+		#cat-section {}
+	</style>
+</head>
+
 <body>
-	
+
 	<div class="jumbotron">
 		<div class="container text-right">
-		  <h1 class="title-text">Youngor</h1>      
-		  <p class="title-text2"> Be young and towards the dream. ori 3</p>
+			<h1 class="title-text">Youngor</h1>
+			<p class="title-text2"> Be young and towards the dream. ori 4</p>
+		</div>
+	</div>
+
+	<div class="cart" action="checkout.html" method="POST">
+		<h2 class="cart-title">My Cart</h2>
+		<div class="cart-content">
+
+		</div>
+		<div class="sub-dis">
+			<span class="subtotal">
+				<div class="subtotal-title">Subtotal</div>
+				<div class="subtotal-price">RM <span id="cart-subtotal">0.00</span></div>
+			</span>
+			<div class="discount">
+				<div class="discount-title">Discount</div>
+				<div class="discount-price">-RM <span id="cart-discount">0.00</span></div>
+			</div>
+		</div>
+		<div class="total">
+			<div class="total-title">Total</div>
+			<div class="total-price">RM <span id="cart-total">0.00</span></div>
+		</div>
+		<button type="button" onclick="handleSubmit()" class="btn-checkout">Checkout</button>
+		<i class="fa-solid fa-xmark" id="close-cart"></i>
+	</div>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html"><img class="logo" src="public/img/logo.png"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="product.html">Products</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="index.html#contact">Contact Us</a></li>
+					<li>
+						<div class="username">
+							<p>Welcome, Guest<span id="username"></span></p>
+						</div>
+					</li>
+
+
+					<li><a><i class="fa-solid fa-cart-shopping" id="cart-icon"></i></a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="login.html"><i class="fa-regular fa-user"></i> User</a></li>
+					<li><a href="adminlogin.html"><i class="fa-regular fa-user"></i> Admin</a></li>
+			</div>
+
 		</div>
 
-<div class="cart" action="checkout.html" method="POST">
-			<h2 class="cart-title">My Cart</h2>
-			<div class="cart-content">
+	</nav>
 
-			</div>
-			<div class="sub-dis">
-				<span class="subtotal">
-					<div class="subtotal-title">Subtotal</div>
-					<div class="subtotal-price">RM <span id="cart-subtotal">0.00</span></div>
-				</span>
-				<div class="discount">
-					<div class="discount-title">Discount</div>
-					<div class="discount-price">-RM <span id="cart-discount">0.00</span></div>
-				</div>
-			</div>
-			<div class="total">
-				<div class="total-title">Total</div>
-				<div class="total-price">RM <span id="cart-total">0.00</span></div>
-			</div>
-			<button type="button" onclick="handleSubmit()" class="btn-checkout">Checkout</button>
-			<i class="fa-solid fa-xmark" id="close-cart"></i>
-		</div>		
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-	  	  	<a href="index.html"><img class="logo" src="public/img/logo.png"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="product.html">Products</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="index.html#contact">Contact Us</a></li>
-		<li><div class="username"><p>Welcome, Guest<span id="username" ></span></p></div></li>
-
-
-		<li><a><i class="fa-solid fa-cart-shopping" id="cart-icon"></i></a></li>
-      </ul>
-	  
-      <ul class="nav navbar-nav navbar-right">
-	  <li><a href="login.html"><i class="fa-regular fa-user"></i> User</a></li>
-		<li><a href="adminlogin.html"><i class="fa-regular fa-user"></i> Admin</a></li>
-    </div>
-	
-  </div>
-
-</nav>
-
-<section class="shop-container">
+	<section class="shop-container">
 		<div id="Clothes">
 			<h2>Clothes</h2>
 			<div class="pro-container">
@@ -94,7 +98,8 @@ body {
 						<span class="price">RM48</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/shirts/blazer/Black-1" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Blazer</h4>
@@ -102,7 +107,8 @@ body {
 						<span class="price">RM188</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/shirts/hoodie/Beige-1.jpg" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Youngor X Regress Hoodie</h4>
@@ -111,7 +117,8 @@ body {
 						<span class="price">RM68</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/shirts/longsleeve/Black-1.jpg" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Long Sleeve Smart Casual Shirt</h4>
@@ -119,7 +126,8 @@ body {
 						<span class="price">RM88</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/shirts/polotee/black-1.jpg" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Polo Tee</h4>
@@ -127,7 +135,8 @@ body {
 						<span class="price">RM68</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/shirts/sweater/black 1.jpg" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Youngor Sweeter</h4>
@@ -136,11 +145,11 @@ body {
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
 
-			</div>
+				</div>
 			</div>
 		</div>
 		<br><br><br><br>
-	<div id="Pants">
+		<div id="Pants">
 			<h2>Pants</h2>
 			<div class="pro-container">
 				<div class="product-box">
@@ -151,7 +160,8 @@ body {
 						<span class="price">RM58</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/pants/denim/Black-1" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Denim</h4>
@@ -159,7 +169,8 @@ body {
 						<span class="price">RM58</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/pants/short/black-1" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Youngor Business Short Pant</h4>
@@ -167,7 +178,8 @@ body {
 						<span class="price">RM48</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/pants/sport/beige-1" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Youngor Sport Short Pant</h4>
@@ -175,7 +187,8 @@ body {
 						<span class="price">RM38</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/pants/suit/black-1.jpg" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Suit Pant</h4>
@@ -183,7 +196,8 @@ body {
 						<span class="price">RM98</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/pants/sweat/Beige-1" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Sweat Pant</h4>
@@ -191,11 +205,11 @@ body {
 						<span class="price">RM68</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-			</div>
+				</div>
 			</div>
 		</div>
-	<br><br><br><br>
-<div id="Shoes & Accessories">
+		<br><br><br><br>
+		<div id="Shoes & Accessories">
 			<h2>Shoes & Accessories</h2>
 			<div class="pro-container">
 				<div class="product-box">
@@ -207,7 +221,8 @@ body {
 						<span class="price">RM108</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/accessories/casual2/black.jpg" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Casual Shoe Type-II</h4>
@@ -216,7 +231,8 @@ body {
 						<span class="price">RM28</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/accessories/leather1/1.jpg" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Limited Edition Youngor Brown Leather Shoe</h4>
@@ -224,7 +240,8 @@ body {
 						<span class="price">RM288</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/accessories/leather2/3.jpg" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Youngor Business Leather Shoe</h4>
@@ -233,7 +250,8 @@ body {
 						<span class="price">RM268</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/accessories/socks/black-1" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Youngor X Dissy Sock</h4>
@@ -241,7 +259,8 @@ body {
 						<span class="price">RM18</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-				</div><div class="product-box">
+				</div>
+				<div class="product-box">
 					<img src="public/img/accessories/tie/Black" class="product-img">
 					<div class="des">
 						<h4 class="product-title">Tie</h4>
@@ -249,13 +268,14 @@ body {
 						<span class="price">RM18</span>
 					</div>
 					<i class="fa-solid fa-cart-shopping add-cart"></i>
-			</div>
+				</div>
 			</div>
 		</div>
 
 	</section>
-  	<script src="public/js/product.js"></script>
+	<script src="public/js/product.js"></script>
 
 
 </body>
+
 </html>
