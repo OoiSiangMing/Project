@@ -70,23 +70,27 @@
 		background-size: cover;
 	}
 	
-	.title-text {
-		font-family: Garamond, serif;
-		font-size: 30px;
-		font-style: italic;
-		line-height: 20px;
-		color: #8ea0d1;
-		padding: 20px;
+	.title-bg {
+		position: absolute;
+	}
+	
+	.title-text{
+	   font-family:Garamond, serif;
+	   font-size:30px;
+	   font-style:italic;
+	   line-height:20px;
+	   color:#8ea0d1;
+	   padding:20px;
+	   left: 2px;
 	}
 	
 	.title-text2 {
-		font-family: Baskerville, serif;
-		font-size: 16px;
-		font-style: italic;
-		line-height: 20px;
-		color: black;
-		padding: 20px;
-		background-color: rgba(255, 255, 255, 0.7); /* Adding a semi-transparent background for readability */
+		font-family:Baskerville, serif;
+	   font-size:16px;
+	   font-style:italic;
+	   line-height:20px;
+	   color:black;
+	   padding:20px;
 	}
 
 .logo{
@@ -97,12 +101,6 @@
 html {
   scroll-behavior: smooth;
 }
-
-.title-bg {
-	position: absolute;
-}
-
-
 
 .header-text{
    font-family:Garamond, serif;
