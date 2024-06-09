@@ -73,16 +73,9 @@
 
 .jumbotron {
 	margin-bottom: 0;
-	background-image: url('public/img/banner.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
 	position: relative;
-	/* Needed for z-index to work on children */
 	padding: 20px;
-	/* Adjust padding as needed */
 	color: white;
-	/* Set text color for better contrast */
 }
 
 .container {

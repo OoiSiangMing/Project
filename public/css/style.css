@@ -68,48 +68,41 @@
 
 
 .jumbotron {
-  margin-bottom: 0;
-  background-image: url('public/img/banner.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  /* Needed for z-index to work on children */
-  padding: 20px;
-  /* Adjust padding as needed */
-  color: white;
-  /* Set text color for better contrast */
+	margin-bottom: 0;
+	position: relative;
+	padding: 20px;
+	color: white;
 }
 
 .container {
-  position: relative;
-  /* Ensures z-index is effective */
-  z-index: 1;
-  /* Ensures the text container is above the background */
+	position: relative;
+	/* Ensures z-index is effective */
+	z-index: 1;
+	/* Ensures the text container is above the background */
 }
 
 .title-text {
-  font-family: Garamond, serif;
-  font-size: 30px;
-  font-style: italic;
-  line-height: 20px;
-  color: #8ea0d1;
-  padding: 20px;
-  position: relative;
-  z-index: 2;
-  /* Higher z-index to ensure text is above other elements if necessary */
+	font-family: Garamond, serif;
+	font-size: 30px;
+	font-style: italic;
+	line-height: 20px;
+	color: #8ea0d1;
+	padding: 20px;
+	position: relative;
+	z-index: 2;
+	/* Higher z-index to ensure text is above other elements if necessary */
 }
 
 .title-text2 {
-  font-family: Baskerville, serif;
-  font-size: 16px;
-  font-style: italic;
-  line-height: 20px;
-  color: black;
-  padding: 20px;
-  position: relative;
-  z-index: 2;
-  /* Higher z-index to ensure text is above other elements if necessary */
+	font-family: Baskerville, serif;
+	font-size: 16px;
+	font-style: italic;
+	line-height: 20px;
+	color: black;
+	padding: 20px;
+	position: relative;
+	z-index: 2;
+	/* Higher z-index to ensure text is above other elements if necessary */
 }
 
 
@@ -127,10 +120,6 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-.title-bg {
-  position: absolute;
 }
 
 .header-text {
