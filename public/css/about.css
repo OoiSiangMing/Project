@@ -24,15 +24,10 @@ html {
 }
 
 .about-section {
-  background-image: url("public/about_image.jpeg");
   height: 500px;
-  background-position: center; 
-  background-repeat: no-repeat; 
   padding: 50px;
   text-align: center;
   color: black;
-  
-  
 }
 
 .about-section h1{
