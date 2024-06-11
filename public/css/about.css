@@ -24,7 +24,7 @@ html {
 }
 
 .about-section {
-  height: 700x;
+  height: 800x;
   padding: 50px;
   text-align: center;
 }
@@ -41,10 +41,10 @@ html {
 
 
 .about-section b{
-  font-family: 'Baskerville', serif; 
-  font-style: italic;
+	font-family:Garamond, serif;
 	font-size:30px;
 	text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+	font-style:italic;
 	color:white;
 	padding:20px;
 	left: 2px;
