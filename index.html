@@ -38,7 +38,7 @@ body {
     <div class="jumbotron" style="background-image: url('public/img/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="container text-right">
             <h1 class="title-text">Youngor</h1>
-            <p class="title-text2">Be young and towards the dream. 4</p>
+            <p class="title-text2">Be young and towards the dream. 5</p>
         </div>
     </div>
 
@@ -55,7 +55,7 @@ body {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
+        <li class="active"></li>><a href="index.html">Home</a></li>
         <li><a href="product.html">Products</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="#contact">Contact Us</a></li>
@@ -173,6 +173,20 @@ body {
 		</div>
 	</section>
 	
+	<script>
+		function submitForm() {
+		  var message = document.getElementById("message").value;
+		  if (message.trim() === "") {
+			alert("Please enter a message before submitting.");
+		  } else {
+			alert("Submit successful!");
+			// Optionally, you can actually submit the form here
+			// document.getElementById("myForm").submit();
+		  }
+		}
+	  </script>
+
+
 	<footer>
 		<p>Copyright &copy; 2023 Youngor</p>
     </footer>
