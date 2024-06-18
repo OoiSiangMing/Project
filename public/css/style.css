@@ -75,9 +75,9 @@
 }
 
 .container {
-  position: absolute;
-  top: 50%; /* Adjust vertically as needed */
-  left: 20px; /* Adjust left position */
+  position: relative;
+  top: 90px; /* Adjust vertically as needed */
+  right: 4%; /* Adjust left position */
   transform: translateY(-50%); /* Center vertically */
 }
 

@@ -80,34 +80,26 @@
 
 .container {
 	position: relative;
-	/* Ensures z-index is effective */
-	z-index: 1;
-	/* Ensures the text container is above the background */
-}
-
-.title-text {
-	font-family: Garamond, serif;
-	font-size: 30px;
-	font-style: italic;
-	line-height: 20px;
-	color: #8ea0d1;
-	padding: 20px;
-	position: relative;
-	z-index: 2;
-	/* Higher z-index to ensure text is above other elements if necessary */
-}
-
-.title-text2 {
+	top: 90px; /* Adjust vertically as needed */
+	right: 4%; /* Adjust left position */
+	transform: translateY(-50%); /* Center vertically */
+  }
+  
+  .logo-image {
+	max-width: 150px; /* Adjust the maximum width of the logo */
+	float: left; /* Float the logo to the left */
+	margin-right: 10px; /* Adjust margin-right to create space between logo and text */
+  }
+  
+  .title-text2 {
 	font-family: Baskerville, serif;
-	font-size: 16px;
 	font-style: italic;
 	line-height: 20px;
 	color: black;
 	padding: 20px;
-	position: relative;
-	z-index: 2;
-	/* Higher z-index to ensure text is above other elements if necessary */
-}
+	text-align: left; /* Align text to the left */
+	clear: left; /* Clear the float to ensure text appears below the logo */
+  }
 
 .logo {
 	height: 60px;
