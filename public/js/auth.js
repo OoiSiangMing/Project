@@ -7,7 +7,7 @@ const database = getDatabase();
 
 // Function to write user data to the database
 function writeUserData(userId, username, email) {
-    set(ref(database, 'users/' + userId), {
+  set(ref(database, 'users/' + userId), {
     username: username,
     email: email
   }).then(() => {
@@ -34,12 +34,34 @@ async function signUp(email, password, username) {
   }
 }
 
+// Function to retrieve user data
+async function getUserData(userId) {
+  const dbRef = ref(getDatabase());
+  try {
+    const snapshot = await get(child(dbRef, `users/${userId}`));
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      console.error("No data available");
+    }
+  } catch (error) {
+    console.error("Error retrieving user data:", error);
+  }
+}
+
 // Function to log in an existing user
 async function login(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     console.log("User logged in:", user);
+
+    // Retrieve and display user data
+    const userData = await getUserData(user.uid);
+    if (userData) {
+      document.getElementById('username').innerText = userData.username;
+    }
+
     window.location.href = "index_user.html"; // Redirect to another page
   } catch (error) {
     console.error("Error logging in:", error);
@@ -47,4 +69,16 @@ async function login(email, password) {
   }
 }
 
-export { signUp, login };
+// Function to check the auth state and update the username
+function checkAuthState() {
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const userData = await getUserData(user.uid);
+      if (userData) {
+        document.getElementById('username').innerText = userData.username;
+      }
+    }
+  });
+}
+
+export { signUp, login, checkAuthState };

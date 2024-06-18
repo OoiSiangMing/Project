@@ -1,4 +1,4 @@
-import { signUp, login } from './auth.js';
+import { signUp, login, checkAuthState } from './auth.js';
 
 // Handle sign-up form submission
 document.getElementById('signUpForm').addEventListener('submit', async (e) => {
@@ -6,6 +6,12 @@ document.getElementById('signUpForm').addEventListener('submit', async (e) => {
   const email = document.getElementById('signUpEmail').value;
   const password = document.getElementById('signUpPassword').value;
   const username = document.getElementById('signUpUsername').value; // Get the username value
+
+  if (!username) {
+    alert("Username is required");
+    return;
+  }
+
   await signUp(email, password, username);
 });
 
@@ -17,3 +23,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   await login(email, password);
 });
 
+// Check authentication state on page load
+document.addEventListener('DOMContentLoaded', () => {
+  checkAuthState();
+});
