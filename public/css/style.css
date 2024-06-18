@@ -244,7 +244,7 @@ html {
 
 .shop-item-title {
   display: block;
-  margin-bottom: 15px; /* Adjust the margin as needed to create space under the span */
+  margin-bottom: 10px; /* Adjust the margin as needed to create space under the span */
   font-size: 18px; /* Adjust the font size as needed */
   font-weight: bold; /* Optional: Make the text bold */
 }
