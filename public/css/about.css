@@ -31,6 +31,10 @@ html {
   display: block; /* Removes any extra space under the image */
 }
 
+.row {
+  justify-content: space-between;
+}
+
 .about-section {
   height: 800x;
   padding: 50px;
