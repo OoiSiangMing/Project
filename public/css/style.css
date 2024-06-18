@@ -241,13 +241,6 @@ html {
   flex-wrap: wrap;
 }
 
-.shop-item-title {
-  display: block;
-  margin-bottom: 10px; /* Adjust the margin as needed to create space under the span */
-  font-size: 18px; /* Adjust the font size as needed */
-  font-weight: bold; /* Optional: Make the text bold */
-}
-
 .product img {
   display: block;
   margin-left: auto;
