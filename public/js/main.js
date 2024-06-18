@@ -5,13 +5,7 @@ document.getElementById('signUpForm').addEventListener('submit', async (e) => {
   e.preventDefault(); // Prevent the form from submitting normally
   const email = document.getElementById('signUpEmail').value;
   const password = document.getElementById('signUpPassword').value;
-  const username = document.getElementById('signUpUsername').value;
-
-  if (!username) {
-    alert("Username is required");
-    return;
-  }
-
+  const username = document.getElementById('signUpUsername').value; // Get the username value
   await signUp(email, password, username);
 });
 
