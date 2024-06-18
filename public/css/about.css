@@ -16,8 +16,9 @@ html {
 .row {
   display: flex;
   justify-content: space-between; /* Adjust the spacing between columns */
+  align-items: stretch; /* Ensure all columns are the same height */
   flex-wrap: wrap; /* Allows wrapping if the screen size is too small */
-  margin: 0 -10px; /* Negative margin to counter the padding of columns */
+  margin: 0 50px; /* Negative margin to counter the padding of columns */
 }
 
 .column {
@@ -26,12 +27,17 @@ html {
   padding: 0 10px; /* Adds padding inside columns for spacing */
   box-sizing: border-box; /* Ensures padding is included in the width */
   margin-bottom: 20px; /* Adds some space at the bottom of each column */
+  display: flex; /* Use flexbox to align the card inside */
+  flex-direction: column; /* Ensure the column layout */
 }
 
 .card {
   border-radius: 15px; /* Rounds the corners of the card */
   overflow: hidden; /* Ensures the rounded corners are applied to content inside the card */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adds a shadow for better visual effect */
+  display: flex; /* Use flexbox to stretch the content */
+  flex-direction: column; /* Ensure column layout */
+  flex-grow: 1; /* Make the card grow to fill the available space */
 }
 
 .card img {
@@ -41,7 +47,11 @@ html {
 }
 
 .container {
-  padding: 16px; /* Adds padding inside the container */
+  padding: 20px; /* Adds padding inside the container */
+  flex-grow: 1; /* Make the container grow to fill the available space */
+  display: flex; /* Use flexbox to align the content inside */
+  flex-direction: column; /* Ensure column layout */
+  justify-content: space-between; /* Distribute space between elements */
 }
 
 
