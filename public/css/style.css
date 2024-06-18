@@ -81,11 +81,12 @@
 	/* Ensures the text container is above the background */
 }
 
-.title-text {
+.logo-image {
   padding: 20px;
-  position: relative;
-  z-index: 2;
-  max-width: 100%;
+  position: absolute; /* Absolute positioning to place it on the right */
+  right: 20px;
+  top: 20px; /* Adjust as necessary */
+  width: 100px; /* Adjust the size of the logo */
   height: auto;
 }
 
