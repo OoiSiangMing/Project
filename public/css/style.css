@@ -90,18 +90,15 @@
 }
 
 .title-text2 {
-	font-family: Baskerville, serif;
-	font-size: 16px;
-	font-style: italic;
-	line-height: 20px;
-	color: black;
-	padding: 20px;
-	position: relative;
-	z-index: 2;
-	/* Higher z-index to ensure text is above other elements if necessary */
-  margin-right: 20px; /* Adjust spacing between logo and text */
+  font-family: Baskerville, serif;
+  font-style: italic;
+  line-height: 20px;
+  color: black;
+  padding: 20px;
+  position: absolute;
+  top: 90px; /* Adjust the top position as needed */
+  left: 5px; /* Adjust the right position */
   text-align: right; /* Align text to the right */
-  font-size: 24px; /* Adjust font size as needed */
 }
 
 
