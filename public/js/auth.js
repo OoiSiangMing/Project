@@ -7,6 +7,11 @@ const database = getDatabase();
 
 // Function to write user data to the database
 function writeUserData(userId, username, email) {
+  if (!username || !email) {
+    console.error("Error: username or email is undefined");
+    return;
+  }
+  
   set(ref(database, 'users/' + userId), {
     username: username,
     email: email
