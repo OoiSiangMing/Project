@@ -12,21 +12,23 @@ html {
 }
 
 .column {
-  float: left;
-  width: 33.3%;
-  margin-bottom: 16px;
-  padding: 0 8px;
+  display: flex;
+  justify-content: center; /* Centers the card horizontally */
+  margin: 20px; /* Adds some margin around the column */
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 40px;
+  border-radius: 15px;
+  overflow: hidden; /* Ensures the rounded corners are applied to the content inside the card */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adds a shadow for better visual effect */
+  width: 100%; /* Adjusts the width as needed */
+  max-width: 300px; /* Limits the maximum width */
 }
 
-.rounded-image {
-  border-radius: 15px 15px 0 0; /* Rounds the top corners only */
+.card img {
   width: 100%;
   height: 500px; /* Ensures the height is maintained */
+  display: block; /* Removes any extra space under the image */
 }
 
 .about-section {
