@@ -99,6 +99,9 @@
 	position: relative;
 	z-index: 2;
 	/* Higher z-index to ensure text is above other elements if necessary */
+  margin-right: 20px; /* Adjust spacing between logo and text */
+  text-align: right; /* Align text to the right */
+  font-size: 24px; /* Adjust font size as needed */
 }
 
 
