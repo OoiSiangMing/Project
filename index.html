@@ -37,7 +37,7 @@
 		style="background-image: url('public/img/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 		<div class="container text-right">
 			<img src="public/img/logo_transparent.png" alt="Youngor Logo" style="max-width: 100%; height: auto;">
-			<p class="title-text2">Be young and towards the dream. 1</p>
+			<p class="title-text2">Be young and towards the dream. 2</p>
 		</div>
 	</div>
 
@@ -202,6 +202,8 @@
 					}
 
 					alert("Submit successful!");
+					// this is clear the form fields after submited the form
+					document.getElementById("feedbackForm").reset();
 					return false; // Prevent the form from submitting
 				}
 			</script>
