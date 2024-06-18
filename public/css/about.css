@@ -11,18 +11,27 @@ html {
   box-sizing: inherit;
 }
 
-.column {
+
+
+.row {
   display: flex;
-  justify-content: center; /* Centers the card horizontally */
-  margin: 20px; /* Adds some margin around the column */
+  justify-content: space-between; /* Adjust the spacing between columns */
+  flex-wrap: wrap; /* Allows wrapping if the screen size is too small */
+  margin: 0 -10px; /* Negative margin to counter the padding of columns */
+}
+
+.column {
+  flex: 1; /* Allows columns to grow and shrink equally */
+  max-width: 32%; /* Adjusts the maximum width for each column */
+  padding: 0 10px; /* Adds padding inside columns for spacing */
+  box-sizing: border-box; /* Ensures padding is included in the width */
+  margin-bottom: 20px; /* Adds some space at the bottom of each column */
 }
 
 .card {
-  border-radius: 15px;
-  overflow: hidden; /* Ensures the rounded corners are applied to the content inside the card */
+  border-radius: 15px; /* Rounds the corners of the card */
+  overflow: hidden; /* Ensures the rounded corners are applied to content inside the card */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adds a shadow for better visual effect */
-  width: 100%; /* Adjusts the width as needed */
-  max-width: 300px; /* Limits the maximum width */
 }
 
 .card img {
@@ -31,9 +40,10 @@ html {
   display: block; /* Removes any extra space under the image */
 }
 
-.row {
-  justify-content: space-between;
+.container {
+  padding: 16px; /* Adds padding inside the container */
 }
+
 
 .about-section {
   height: 800x;
@@ -62,9 +72,7 @@ html {
 	left: 2px;
 }
 
-.container {
-  padding: 0 16px;
-}
+
 
 .container::after, .row::after {
   content: "";
