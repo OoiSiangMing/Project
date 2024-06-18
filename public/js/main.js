@@ -5,7 +5,8 @@ document.getElementById('signUpForm').addEventListener('submit', async (e) => {
   e.preventDefault(); // Prevent the form from submitting normally
   const email = document.getElementById('signUpEmail').value;
   const password = document.getElementById('signUpPassword').value;
-  await signUp(email, password);
+  const username = document.getElementById('signUpUsername').value; // Get the username value
+  await signUp(email, password, username);
 });
 
 // Handle login form submission
