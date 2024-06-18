@@ -1,9 +1,6 @@
-import { auth } from './firebase.js';
+import { auth, database } from './firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
-
-// Initialize Firebase Realtime Database
-const database = getDatabase();
+import { ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 // Function to write user data to the database
 function writeUserData(userId, username, email) {
@@ -23,10 +20,10 @@ async function signUp(email, password, username) {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     console.log("User signed up:", user);
-    
+
     // Write user data to the database
     writeUserData(user.uid, username, email);
-    
+
     alert("Sign up successful!");
   } catch (error) {
     console.error("Error signing up:", error);
@@ -36,7 +33,7 @@ async function signUp(email, password, username) {
 
 // Function to retrieve user data
 async function getUserData(userId) {
-  const dbRef = ref(getDatabase());
+  const dbRef = ref(database);
   try {
     const snapshot = await get(child(dbRef, `users/${userId}`));
     if (snapshot.exists()) {
