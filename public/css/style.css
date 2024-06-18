@@ -84,9 +84,9 @@
 
 .logo-image {
   max-width: 150px; /* Adjust the maximum width of the logo */
-  position: absolute;
-  top: 20px; /* Adjust the top position */
-  left: 20px; /* Adjust the left position */
+  position: relative;
+  bottom: 20px; /* Adjust the top position */
+  right: 650px; /* Adjust the left position */
 }
 
 .title-text2 {
