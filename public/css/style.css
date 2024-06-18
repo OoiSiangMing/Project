@@ -75,18 +75,16 @@
 }
 
 .container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-    position: relative;
+  position: absolute;
+  top: 50%; /* Adjust vertically as needed */
+  left: 20px; /* Adjust left position */
+  transform: translateY(-50%); /* Center vertically */
 }
 
 .logo-image {
   max-width: 150px; /* Adjust the maximum width of the logo */
-  position: relative;
-  bottom: 20px; /* Adjust the top position */
-  right: 650px; /* Adjust the left position */
+  float: left; /* Float the logo to the left */
+  margin-right: 10px; /* Adjust margin-right to create space between logo and text */
 }
 
 .title-text2 {
@@ -95,10 +93,8 @@
   line-height: 20px;
   color: black;
   padding: 20px;
-  position: absolute;
-  top: 90px; /* Adjust the top position as needed */
-  left: 5px; /* Adjust the right position */
-  text-align: right; /* Align text to the right */
+  text-align: left; /* Align text to the left */
+  clear: left; /* Clear the float to ensure text appears below the logo */
 }
 
 
