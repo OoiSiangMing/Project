@@ -82,15 +82,11 @@
 }
 
 .title-text {
-	font-family: Garamond, serif;
-	font-size: 30px;
-	font-style: italic;
-	line-height: 20px;
-	color: #8ea0d1;
-	padding: 20px;
-	position: relative;
-	z-index: 2;
-	/* Higher z-index to ensure text is above other elements if necessary */
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  height: auto;
 }
 
 .title-text2 {
