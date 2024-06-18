@@ -3,29 +3,31 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA2673_Hxw10Yi1w6c2TyLV9SFLbfNHOZk",
-  authDomain: "project1-9c987.firebaseapp.com",
-  databaseURL: "https://project1-9c987-default-rtdb.firebaseio.com",
-  projectId: "project1-9c987",
-  storageBucket: "project1-9c987.appspot.com",
-  messagingSenderId: "37167302559",
-  appId: "1:37167302559:web:8b6b5f9ecbe0a96508dfaa",
-  measurementId: "G-HXPES1SD09"
+  apiKey: "AIzaSyBxHxS1ErQdCo_47ePNUDCnQsKR1LheRUs",
+  authDomain: "project1-24368.firebaseapp.com",
+  projectId: "project1-24368",
+  storageBucket: "project1-24368.appspot.com",
+  messagingSenderId: "681252013525",
+  appId: "1:681252013525:web:08a8fd1924b8e1f1ea295c"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+
+
+//inputs
+const email = document.getElementById('signUpEmail').value;
+const password = document.getElementById('signUpPassword').value;
+
 // submit button
 const submit = document.getElementById('submit');
 submit.addEventListener("click", function (event) {
   event.preventDefault()
-
-  //inputs
-  const email = document.getElementById('signUpEmail').value;
-  const password = document.getElementById('signUpPassword').value;
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
