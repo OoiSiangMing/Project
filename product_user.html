@@ -30,7 +30,7 @@
     <div class="jumbotron" style="background-image: url('public/img/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 		<div class="container">
 			<img src="public/img/logo_transparent.png" alt="Youngor Logo" class="logo-image">
-			<p class="title-text2">Be young and towards the dream. 3</p>
+			<p class="title-text2">Be young and towards the dream. 4</p>
 		</div>
     </div>
 
@@ -59,7 +59,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a href="index.html"><img class="logo" src="public/img/logo_transparent.png"></a>
+				<a href="index_user.html"><img class="logo" src="public/img/logo_transparent.png"></a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="myNavbar">
@@ -70,7 +70,7 @@
 					<li><a href="index_user.html#contact" style="padding-top: 20px;">Contact Us</a></li>
 					<li style="padding-top: 5px;">
 						<div class="username">
-							<p>Welcome, Guest<span id="username"></span></p>
+							<p>Welcome<span id="username"></span></p>
 						</div>
 					</li>
 
@@ -275,6 +275,23 @@
 	</section>
 	<script src="public/js/product.js"></script>
 
+	<script>
+		// JavaScript to retrieve username from localStorage and update the HTML
+
+		document.addEventListener("DOMContentLoaded", function() {
+    	// Assuming the username is stored in localStorage after login
+    	const username = localStorage.getItem('username');
+
+    	// Check if username is available
+    	if (username) {
+    	    // Update the username element with "Welcome + Username"
+        document.getElementById('username').textContent = 'Welcome' + username;
+    	} else {
+    	    // If no username is found, default to an empty string or a placeholder
+    	    document.getElementById('username').textContent = ' Guest';
+    	}
+		});
+	</script>
 
 </body>
 
