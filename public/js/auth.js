@@ -31,6 +31,10 @@ async function signUp(email, password, username) {
     const user = userCredential.user;
     console.log("User signed up:", user);
 
+    // Get the count of existing users and generate the user ID
+    const userCount = await getUserCount();
+    const userId = `user_${userCount + 1}`;
+
     // Write user data to the database
     writeUserData(user.uid, username, email);
 
