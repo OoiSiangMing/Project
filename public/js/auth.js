@@ -19,7 +19,7 @@ async function getUserCount() {
   const usersRef = ref(database, 'users');
   const snapshot = await get(usersRef);
   if (snapshot.exists()) {
-    return snapshot.size; // Use snapshot.size to get the count of users
+    return snapshot.size || Object.keys(snapshot.val()).length; // Return the count of users
   }
   return 0; // If no users exist, return 0
 }
@@ -64,7 +64,18 @@ async function login(email, password) {
 function checkAuthState() {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
+      console.log("User is signed in:", user);
       // Optionally, retrieve and display user data here if needed
+      const userDisplayName = user.displayName || user.email;
+      document.getElementById('userDisplayName').textContent = `Welcome, ${userDisplayName}`;
+      // Show user-specific content
+      document.getElementById('userContent').style.display = 'block';
+      document.getElementById('loginContent').style.display = 'none';
+    } else {
+      console.log("No user is signed in.");
+      // Hide user-specific content
+      document.getElementById('userContent').style.display = 'none';
+      document.getElementById('loginContent').style.display = 'block';
     }
   });
 }
