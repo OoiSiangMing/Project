@@ -17,7 +17,4 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   await login(email, password);
 });
 
-// Check authentication state on page load
-document.addEventListener('DOMContentLoaded', () => {
-  checkAuthState();
-});
+
