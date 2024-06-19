@@ -1,5 +1,5 @@
 import { auth, database } from './firebase.js';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 import { ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 // Function to write user data to the database
