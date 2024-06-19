@@ -67,7 +67,7 @@ async function login(email, password) {
 }
 
 // Function to check the auth state and update the username
-function checkAuthState() {
+function checkAuthState() { 
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       const userData = await getUserData(user.uid);
@@ -77,5 +77,8 @@ function checkAuthState() {
     }
   });
 }
+
+// Call checkAuthState to monitor auth state changes
+checkAuthState();
 
 export { signUp, login, checkAuthState };
