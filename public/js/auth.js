@@ -36,7 +36,7 @@ async function signUp(email, password, username) {
     const userId = `user_${userCount + 1}`;
 
     // Write user data to the database
-    writeUserData(user.uid, username, email);
+    writeUserData(userId, username, email);
 
     alert("Sign up successful!");
   } catch (error) {
