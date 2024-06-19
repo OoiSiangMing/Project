@@ -52,14 +52,9 @@ async function login(email, password) {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     console.log("User logged in:", user);
-
-    // Retrieve and display user data
-    const userData = await getUserData(user.uid);
-    if (userData) {
-      document.getElementById('username').innerText = userData.username;
-    }
-
-    window.location.href = "index_user.html"; // Redirect to another page
+    
+    // Optionally, you can redirect or perform other actions here
+    window.location.href = "index_user.html"; // Redirect to another page after login
   } catch (error) {
     console.error("Error logging in:", error);
     alert("Login failed. Please check your email and password.");
@@ -67,7 +62,7 @@ async function login(email, password) {
 }
 
 // Function to check the auth state and update the username
-function checkAuthState() { 
+function checkAuthState() {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       const userData = await getUserData(user.uid);
