@@ -93,7 +93,7 @@ function checkAuthState() {
         document.getElementById('username').textContent = `Welcome, ${username}`;
       } else {
         // Handle case where username is not found (optional)
-        document.getElementById('username').textContent = 'Welcome, Guest';
+        document.getElementById('username').textContent = 'Welcome, Guest1';
       }
 
       // Optionally, perform other actions based on user authentication state
