@@ -113,4 +113,4 @@ function checkAuthState() {
 // Call checkAuthState to monitor auth state changes
 checkAuthState();
 
-export { signUp, login, checkAuthState };
+export { signUp, login, checkAuthState, getUsernameFromEmail };
