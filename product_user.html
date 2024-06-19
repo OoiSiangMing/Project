@@ -30,7 +30,7 @@
     <div class="jumbotron" style="background-image: url('public/img/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 		<div class="container">
 			<img src="public/img/logo_transparent.png" alt="Youngor Logo" class="logo-image">
-			<p class="title-text2">Be young and towards the dream. 0</p>
+			<p class="title-text2">Be young and towards the dream. 1</p>
 		</div>
     </div>
 
@@ -293,15 +293,16 @@
 			} else {
 			  console.log("No such user in database");
 			  // Handle case where user does not exist in database
-			  document.getElementById('username').textContent = 'Test';
+			  document.getElementById('username').textContent = ' Guest12';
 			}
 		  } catch (error) {
 			console.error("Error fetching user data:", error);
 			// Handle error scenario
-			document.getElementById('username').textContent = 'Guest1'; // Default to Guest on error
+			document.getElementById('username').textContent = ' Guest34'; // Default to Guest on error
 		  }
 		});
 	  </script>
+	  
 	  
 
 </body>
