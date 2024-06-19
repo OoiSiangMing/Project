@@ -30,7 +30,7 @@
     <div class="jumbotron" style="background-image: url('public/img/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 		<div class="container">
 			<img src="public/img/logo_transparent.png" alt="Youngor Logo" class="logo-image">
-			<p class="title-text2">Be young and towards the dream. 7</p>
+			<p class="title-text2">Be young and towards the dream. 8</p>
 		</div>
     </div>
 
@@ -70,23 +70,6 @@
 					<li><a href="index_user.html#contact" style="padding-top: 20px;">Contact Us</a></li>
 					<li style="padding-top: 5px;">
 						<div class="username">
-							<script>
-								// JavaScript to retrieve username from localStorage and update the HTML
-						
-								document.addEventListener("DOMContentLoaded", function() {
-								// Assuming the username is stored in localStorage after login
-								const username = localStorage.getItem('username');
-						
-								// Check if username is available
-								if (username) {
-									// Update the username element with "Welcome + Username"
-								document.getElementById('username').textContent = 'Welcome' + username;
-								} else {
-									// If no username is found, default to an empty string or a placeholder
-									document.getElementById('username').textContent = ' Guest';
-								}
-								});
-							</script>
 							<p>Welcome<span id="username"></span></p>
 						</div>
 					</li>
@@ -291,7 +274,21 @@
 	</section>
 	<script src="public/js/product.js"></script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Assuming the username is stored in localStorage after login
+            const username = localStorage.getItem('username');
 
+            // Check if username is available
+            if (username) {
+                // Update the username element with "Welcome + Username"
+                document.getElementById('username').textContent = username;
+            } else {
+                // If no username is found, default to an empty string or a placeholder
+                document.getElementById('username').textContent = 'Guest';
+            }
+        });
+    </script>
 
 </body>
 
