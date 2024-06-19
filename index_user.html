@@ -36,7 +36,7 @@
 		style="background-image: url('public/img/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 		<div class="container">
 			<img src="public/img/logo_transparent.png" alt="Youngor Logo" class="logo-image">
-			<p class="title-text2">Be young and towards the dream. 3</p>
+			<p class="title-text2">Be young and towards the dream. 0</p>
 		</div>
 	</div>
 
@@ -178,6 +178,35 @@
 		<p>Copyright &copy; 2023 Youngor</p>
 	</footer>
 	<script src="public/js/index.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", async function() {
+		  // Assuming the user is already authenticated and you have their email
+		  const userEmail = 'user@example.com'; // Replace with the actual user's email
+	  
+		  try {
+			// Query the Realtime Database for the user with this email
+			const usersRef = ref(database, 'users');
+			const snapshot = await get(child(usersRef, userEmail));
+	  
+			if (snapshot.exists()) {
+			  // Retrieve the username from the snapshot
+			  const username = snapshot.val().username;
+	  
+			  // Update the username element with "Welcome + Username"
+			  document.getElementById('username').textContent = 'Welcome ' + username;
+			} else {
+			  console.log("No such user in database");
+			  // Handle case where user does not exist in database
+			  document.getElementById('username').textContent = 'Test';
+			}
+		  } catch (error) {
+			console.error("Error fetching user data:", error);
+			// Handle error scenario
+			document.getElementById('username').textContent = 'Guest1'; // Default to Guest on error
+		  }
+		});
+	  </script>
 
 </body>
 
