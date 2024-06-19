@@ -1,4 +1,4 @@
-import { signUp, login, checkAuthState } from './auth.js';
+import { signUp, login, checkAuthState, getUsernameFromEmail } from './auth.js';
 
 // Function to reset form fields
 function resetForm(formId) {
