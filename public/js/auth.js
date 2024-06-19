@@ -60,20 +60,50 @@ async function login(email, password) {
   }
 }
 
+// Function to retrieve username from Realtime Database based on email
+async function getUsernameFromEmail(email) {
+  try {
+    const usersRef = ref(database, 'users');
+    const snapshot = await get(usersRef.child(email.replace('.', ','))); // Replace '.' with ',' due to Firebase key restrictions
+
+    if (snapshot.exists()) {
+      return snapshot.val().username; // Return the username if found
+    } else {
+      console.log(`No user found with email: ${email}`);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error retrieving username:", error);
+    return null;
+  }
+}
+
 // Function to check the auth state and update the username
 function checkAuthState() {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       console.log("User is signed in:", user);
-      // Optionally, retrieve and display user data here if needed
-      const userDisplayName = user.displayName || user.email;
-      document.getElementById('userDisplayName').textContent = `Welcome, ${userDisplayName}`;
-      // Show user-specific content
+
+      // Retrieve username based on user's email
+      const email = user.email;
+      const username = await getUsernameFromEmail(email);
+
+      if (username) {
+        // Update the username element in the DOM
+        document.getElementById('username').textContent = `Welcome, ${username}`;
+      } else {
+        // Handle case where username is not found (optional)
+        document.getElementById('username').textContent = 'Welcome, Guest';
+      }
+
+      // Optionally, perform other actions based on user authentication state
+      // Show user-specific content, hide login content, etc.
       document.getElementById('userContent').style.display = 'block';
       document.getElementById('loginContent').style.display = 'none';
     } else {
       console.log("No user is signed in.");
-      // Hide user-specific content
+
+      // Hide user-specific content, show login content
       document.getElementById('userContent').style.display = 'none';
       document.getElementById('loginContent').style.display = 'block';
     }
