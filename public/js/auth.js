@@ -5,13 +5,30 @@ import { ref, set, get, query, orderByChild, equalTo } from "https://www.gstatic
 // Function to write user data to the Realtime Database
 function writeUserData(username, email) {
   set(ref(database, 'users/' + username), {
-    email: email,
-    username: username // Add username field to store in the database
+    Email: email,
+    Username: username // Add username field to store in the database
   }).then(() => {
     console.log("User data written to database");
   }).catch((error) => {
     console.error("Error writing user data to database:", error);
   });
+}
+
+// Function to fetch the username from the Realtime Database
+async function fetchUserData(username) {
+  try {
+    const dbRef = ref(database, `users/${username}`);
+    const snapshot = await get(dbRef);
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      console.log("No data available");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    return null;
+  }
 }
 
 // Function to sign up a new user
@@ -38,6 +55,15 @@ async function login(email, password) {
     const user = userCredential.user;
     console.log("User logged in:", user);
 
+    // Fetch user data to get the username
+    const dbRef = ref(database, `users`);
+    const snapshot = await get(query(dbRef, orderByChild('email'), equalTo(email)));
+    if (snapshot.exists()) {
+      const userData = snapshot.val();
+      const username = Object.keys(userData)[0]; // Assuming username is the key
+      localStorage.setItem('username', username);
+    }
+
     // Optionally, you can redirect or perform other actions here
     window.location.href = "index_user.html"; // Redirect to another page after login
   } catch (error) {
@@ -48,5 +74,5 @@ async function login(email, password) {
 
 
 // Export functions
-export { signUp, login };
+export { signUp, login, fetchUserData };
 
