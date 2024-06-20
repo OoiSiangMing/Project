@@ -16,10 +16,10 @@ function writeUserData(username, email) {
 }
 
 // Function to fetch the username from the Realtime Database
-async function fetchUsername(uid) {
+async function fetchUsername(username) {
   try {
     const dbRef = ref(database);
-    const snapshot = await get(child(dbRef, `users/${uid}`));
+    const snapshot = await get(child(dbRef, `users/${username}`));
     if (snapshot.exists()) {
       return snapshot.val().username;
     } else {
@@ -57,7 +57,7 @@ async function login(email, password) {
     console.log("User logged in:", user);
 
     // Fetch and store username
-    const username = await fetchUsername(user.uid);
+    const username = await fetchUsername(user.username);
     if (username) {
       sessionStorage.setItem('username', username);
     }
