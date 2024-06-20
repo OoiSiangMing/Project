@@ -1,5 +1,4 @@
-import { auth } from './firebase.js';
-import { fetchUsernameByEmail, signUp, login } from './auth.js';
+import { signUp, login, fetchUsernameByEmail } from './auth.js';
 
 function resetForm(formId) {
   document.getElementById(formId).reset();
