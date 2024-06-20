@@ -16,10 +16,10 @@ function writeUserData(username, email) {
 }
 
 // Function to fetch the username from the Realtime Database
-async function fetchUsername(username) {
+async function fetchUsername(uid) {
   try {
     const dbRef = ref(database);
-    const snapshot = await get(child(dbRef, `users/${username}`));
+    const snapshot = await get(child(dbRef, `users/${uid}`));
     if (snapshot.exists()) {
       return snapshot.val().username;
     } else {
@@ -55,14 +55,6 @@ async function login(email, password) {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     console.log("User logged in:", user);
-
-    // Fetch and store username
-    const username = await fetchUsername(user.username);
-    if (username) {
-      sessionStorage.setItem('username', username);
-    }
-
-    // Optionally, you can redirect or perform other actions here
     window.location.href = "index_user.html"; // Redirect to another page after login
   } catch (error) {
     console.error("Error logging in:", error);
@@ -72,4 +64,4 @@ async function login(email, password) {
 
 
 // Export functions
-export { signUp, login };
+export { signUp, login, fetchUsername };
