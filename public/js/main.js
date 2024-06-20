@@ -1,4 +1,4 @@
-import { signUp, login } from './auth.js';
+import { signUp, login, checkAuthState } from './auth.js';
 
 // Function to reset form fields
 function resetForm(formId) {
@@ -24,3 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   resetForm('loginForm'); // Reset the form fields after login
 });
 
+// Check authentication state on page load
+document.addEventListener('DOMContentLoaded', () => {
+  checkAuthState();
+});

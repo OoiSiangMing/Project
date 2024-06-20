@@ -63,4 +63,4 @@ async function login(email, password) {
 
 
 // Export functions
-export { signUp, login };
+export { signUp, login, checkAuthState };
