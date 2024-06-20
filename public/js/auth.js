@@ -1,6 +1,6 @@
 import { auth, database } from './firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { ref, set, get, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+import { ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 // Function to write user data to the Realtime Database
 function writeUserData(username, email) {
@@ -14,21 +14,21 @@ function writeUserData(username, email) {
   });
 }
 
-// Function to fetch the username from the Realtime Database
-async function fetchUserData(username) {
-  try {
-    const dbRef = ref(database, `users/${username}`);
-    const snapshot = await get(dbRef);
-    if (snapshot.exists()) {
-      return snapshot.val();
-    } else {
-      console.log("No data available");
-      return null;
+// Function to fetch username from the Realtime Database using email
+async function fetchUsernameByEmail(email) {
+  const dbRef = ref(database);
+  const snapshot = await get(child(dbRef, `users`));
+  if (snapshot.exists()) {
+    const users = snapshot.val();
+    for (const userKey in users) {
+      if (users[userKey].email === email) {
+        return users[userKey].username;
+      }
     }
-  } catch (error) {
-    console.error("Error fetching user data:", error);
-    return null;
+  } else {
+    console.log("No data available");
   }
+  return null;
 }
 
 // Function to sign up a new user
@@ -55,6 +55,12 @@ async function login(email, password) {
     const user = userCredential.user;
     console.log("User logged in:", user);
 
+    // Fetch the username and update the HTML
+    const username = await fetchUsernameByEmail(user.email);
+    if (username) {
+      document.getElementById('username').innerText = username;
+    }
+
     // Optionally, you can redirect or perform other actions here
     window.location.href = "index_user.html"; // Redirect to another page after login
   } catch (error) {
@@ -64,10 +70,6 @@ async function login(email, password) {
 }
 
 
-
-
-
-
 // Export functions
-export { signUp, login, fetchUserData };
+export { signUp, login, fetchUsernameByEmail };
 

@@ -1,26 +1,34 @@
-import { signUp, login } from './auth.js';
+import { auth } from './firebase.js';
+import { fetchUsernameByEmail, signUp, login } from './auth.js';
 
-// Function to reset form fields
 function resetForm(formId) {
   document.getElementById(formId).reset();
 }
 
-// Handle sign-up form submission
-document.getElementById('signUpForm').addEventListener('submit', async (e) => {
-  e.preventDefault(); // Prevent the form from submitting normally
-  const email = document.getElementById('signUpEmail').value;
-  const password = document.getElementById('signUpPassword').value;
-  const username = document.getElementById('signUpUsername').value; // Get the username value
-  await signUp(email, password, username);
-  resetForm('signUpForm'); // Reset the form fields after sign up
+// Listen for auth state changes
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    // User is signed in, get the username
+    const username = await fetchUsernameByEmail(user.email);
+    if (username) {
+      document.getElementById('username').innerText = username;
+    }
+  }
 });
 
-// Handle login form submission
+document.getElementById('signUpForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('signUpEmail').value;
+  const password = document.getElementById('signUpPassword').value;
+  const username = document.getElementById('signUpUsername').value;
+  await signUp(email, password, username);
+  resetForm('signUpForm');
+});
+
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
-  e.preventDefault(); // Prevent the form from submitting normally
+  e.preventDefault();
   const email = document.getElementById('loginEmail').value;
   const password = document.getElementById('loginPassword').value;
   await login(email, password);
-  resetForm('loginForm'); // Reset the form fields after login
+  resetForm('loginForm');
 });
-
