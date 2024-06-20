@@ -1,6 +1,6 @@
 import { auth, database } from './firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+import { ref, set, get, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 // Function to write user data to the Realtime Database
 function writeUserData(userId, username, email) {
@@ -62,18 +62,21 @@ async function login(email, password) {
   }
 }
 
-// Function to retrieve username from Realtime Database based on UID
-async function getUsernameFromUID(uid) {
+// Function to retrieve username from Realtime Database based on email
+async function getUsernameFromEmail(email) {
   try {
-    const userRef = ref(database, 'users/' + uid);
-    const snapshot = await get(userRef);
+    const usersRef = ref(database, 'users');
+    const emailQuery = query(usersRef, orderByChild('email'), equalTo(email));
+    const snapshot = await get(emailQuery);
 
     if (snapshot.exists()) {
-      const username = snapshot.val().username;
+      const userData = snapshot.val();
+      const userId = Object.keys(userData)[0];
+      const username = userData[userId].username;
       console.log("Username retrieved:", username);
-      return username; // Return the username if found
+      return username;
     } else {
-      console.log(`No user found with UID: ${uid}`);
+      console.log(`No user found with email: ${email}`);
       return null;
     }
   } catch (error) {
@@ -88,16 +91,16 @@ function checkAuthState() {
     if (user) {
       console.log("User is signed in:", user);
 
-      // Retrieve username based on user's UID
-      const uid = user.uid;
-      const username = await getUsernameFromUID(uid);
+      // Retrieve username based on user's email
+      const email = user.email;
+      const username = await getUsernameFromEmail(email);
 
       if (username) {
         // Update the username element in the DOM
         document.getElementById('username').textContent = `Welcome, ${username}`;
       } else {
         // Handle case where username is not found (optional)
-        document.getElementById('username').textContent = 'Welcome, Guesttest';
+        document.getElementById('username').textContent = 'Welcome, Guest';
       }
 
       // Optionally, perform other actions based on user authentication state
