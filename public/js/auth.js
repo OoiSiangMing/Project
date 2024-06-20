@@ -4,8 +4,8 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthState
 import { ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 // Function to write user data to the Realtime Database
-function writeUserData(username, email) {
-  set(ref(database, 'users/' + username), {
+function writeUserData(uid, username, email) {
+  set(ref(database, 'users/' + uid), {
     email: email,
     username: username // Add username field to store in the database
   }).then(() => {
@@ -40,7 +40,7 @@ async function signUp(email, password, username) {
     console.log("User signed up:", user);
 
     // Write user data to the database
-    writeUserData(username, email);
+    writeUserData(user.id, username, email);
 
     alert("Sign up successful!");
   } catch (error) {
