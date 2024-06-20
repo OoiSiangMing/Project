@@ -3,9 +3,8 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthState
 import { ref, set, get, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 // Function to write user data to the Realtime Database
-function writeUserData(userId, username, email) {
-  set(ref(database, 'users/' + userId), {
-    username: username,
+function writeUserData(username, email) {
+  set(ref(database, 'users/' + username), {
     email: email
   }).then(() => {
     console.log("User data written to database");
@@ -14,18 +13,6 @@ function writeUserData(userId, username, email) {
   });
 }
 
-// Function to get the count of existing users
-async function getUserCount() {
-  const usersRef = ref(database, 'users');
-  const snapshot = await get(usersRef);
-  if (snapshot.exists()) {
-    return snapshot.size || Object.keys(snapshot.val()).length; // Return the count of users
-  }
-  return 0; // If no users exist, return 0
-}
-
-
-
 // Function to sign up a new user
 async function signUp(email, password, username) {
   try {
@@ -33,12 +20,8 @@ async function signUp(email, password, username) {
     const user = userCredential.user;
     console.log("User signed up:", user);
 
-    // Get the count of existing users and generate the user ID
-    const userCount = await getUserCount();
-    const userId = `user_${userCount + 1}`;
-
     // Write user data to the database
-    writeUserData(userId, username, email);
+    writeUserData(username, email);
 
     alert("Sign up successful!");
   } catch (error) {
@@ -71,8 +54,7 @@ async function getUsernameFromEmail(email) {
 
     if (snapshot.exists()) {
       const userData = snapshot.val();
-      const userId = Object.keys(userData)[0];
-      const username = userData[userId].username;
+      const username = Object.keys(userData)[0]; // Get the first (and presumably only) key
       console.log("Username retrieved:", username);
       return username;
     } else {
