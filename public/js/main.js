@@ -1,33 +1,18 @@
-import { signUp, login, fetchUsernameByEmail } from './auth.js';
+import { signUp, login } from './auth.js';
 
-function resetForm(formId) {
-  document.getElementById(formId).reset();
-}
-
-// Listen for auth state changes
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    // User is signed in, get the username
-    const username = await fetchUsernameByEmail(user.email);
-    if (username) {
-      document.getElementById('username').innerText = username;
-    }
-  }
-});
-
+// Handle sign-up form submission
 document.getElementById('signUpForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // Prevent the form from submitting normally
   const email = document.getElementById('signUpEmail').value;
   const password = document.getElementById('signUpPassword').value;
-  const username = document.getElementById('signUpUsername').value;
+  const username = document.getElementById('signUpUsername').value; // Get the username value
   await signUp(email, password, username);
-  resetForm('signUpForm');
 });
 
+// Handle login form submission
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // Prevent the form from submitting normally
   const email = document.getElementById('loginEmail').value;
   const password = document.getElementById('loginPassword').value;
   await login(email, password);
-  resetForm('loginForm');
 });
