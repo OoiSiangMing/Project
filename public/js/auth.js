@@ -71,5 +71,5 @@ async function login(email, password) {
 
 
 // Export functions
-export { signUp, login, fetchUsernameByEmail };
+export { signUp, login, fetchUsernameByEmail, onAuthStateChanged };
 
