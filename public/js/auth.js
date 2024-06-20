@@ -51,9 +51,10 @@ async function signUp(email, password, username) {
 // Function to log in an existing user
 async function login(email, password) {
   try {
+    console.log("Attempting to log in with email:", email);
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    console.log("User logged in:", user);
+    console.log("User logged in successfully:", user);
 
     // Fetch user data to get the username
     const dbRef = ref(database, 'users');
@@ -62,17 +63,18 @@ async function login(email, password) {
 
     if (snapshot.exists()) {
       const userData = snapshot.val();
+      console.log("User data fetched from database:", userData);
       const username = Object.keys(userData)[0];
       console.log("Fetched username:", username);
       localStorage.setItem('username', username);
     } else {
-      console.error("No matching user found in the database");
+      console.error("No matching user found in the database for email:", email);
     }
 
     // Optionally, you can redirect or perform other actions here
     window.location.href = "index_user.html"; // Redirect to another page after login
   } catch (error) {
-    console.error("Error logging in:", error);
+    console.error("Error logging in:", error.message, error);
     alert("Login failed. Please check your email and password.");
   }
 }
