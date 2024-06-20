@@ -56,12 +56,17 @@ async function login(email, password) {
     console.log("User logged in:", user);
 
     // Fetch user data to get the username
-    const dbRef = ref(database, `users`);
-    const snapshot = await get(query(dbRef, orderByChild('email'), equalTo(email)));
+    const dbRef = ref(database, 'users');
+    const userQuery = query(dbRef, orderByChild('email'), equalTo(email));
+    const snapshot = await get(userQuery);
+
     if (snapshot.exists()) {
       const userData = snapshot.val();
-      const username = Object.keys(userData)[0]; // Assuming username is the key
+      const username = Object.keys(userData)[0];
+      console.log("Fetched username:", username);
       localStorage.setItem('username', username);
+    } else {
+      console.error("No matching user found in the database");
     }
 
     // Optionally, you can redirect or perform other actions here
