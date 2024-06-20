@@ -24,27 +24,7 @@ async function getUserCount() {
   return 0; // If no users exist, return 0
 }
 
-// Function to retrieve username from Realtime Database based on email
-async function getUsernameFromEmail(email) {
-  try {
-    const usersRef = ref(database, 'users');
-    const emailKey = email.replace('.', ',');
-    console.log("Fetching username for email:", emailKey);
-    const snapshot = await get(child(usersRef, emailKey));
 
-    if (snapshot.exists()) {
-      const username = snapshot.val().username;
-      console.log("Username retrieved:", username);
-      return username; // Return the username if found
-    } else {
-      console.log(`No user found with email: ${email}`);
-      return null;
-    }
-  } catch (error) {
-    console.error("Error retrieving username:", error);
-    return null;
-  }
-}
 
 // Function to sign up a new user
 async function signUp(email, password, username) {
@@ -82,22 +62,42 @@ async function login(email, password) {
   }
 }
 
+// Function to retrieve username from Realtime Database based on UID
+async function getUsernameFromUID(uid) {
+  try {
+    const userRef = ref(database, 'users/' + uid);
+    const snapshot = await get(userRef);
+
+    if (snapshot.exists()) {
+      const username = snapshot.val().username;
+      console.log("Username retrieved:", username);
+      return username; // Return the username if found
+    } else {
+      console.log(`No user found with UID: ${uid}`);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error retrieving username:", error);
+    return null;
+  }
+}
+
 // Function to check the auth state and update the username
 function checkAuthState() {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       console.log("User is signed in:", user);
 
-      // Retrieve username based on user's email
-      const email = user.email;
-      const username = await getUsernameFromEmail(email);
+      // Retrieve username based on user's UID
+      const uid = user.uid;
+      const username = await getUsernameFromUID(uid);
 
       if (username) {
         // Update the username element in the DOM
         document.getElementById('username').textContent = `Welcome, ${username}`;
       } else {
         // Handle case where username is not found (optional)
-        document.getElementById('username').textContent = 'Welcome, Guest1';
+        document.getElementById('username').textContent = 'Welcome, Guesttest';
       }
 
       // Optionally, perform other actions based on user authentication state
