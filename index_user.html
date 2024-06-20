@@ -29,7 +29,7 @@
 		style="background-image: url('public/img/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 		<div class="container">
 			<img src="public/img/logo_transparent.png" alt="Youngor Logo" class="logo-image">
-			<p class="title-text2">Be young and towards the dream. 3</p>
+			<p class="title-text2">Be young and towards the dream. 4</p>
 		</div>
 	</div>
 
@@ -178,7 +178,7 @@
 
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                const username = await fetchUsername(user.username);
+                const username = await fetchUsername(username);
                 if (username) {
                     document.getElementById('username').textContent = username;
                 }
