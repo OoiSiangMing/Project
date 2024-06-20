@@ -41,3 +41,5 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   await login(email, password);
   resetForm('loginForm');
 });
+
+}); // Closing the DOMContentLoaded event listener function
