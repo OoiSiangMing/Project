@@ -40,7 +40,7 @@ async function signUp(email, password, username) {
     console.log("User signed up:", user);
 
     // Write user data to the database
-    writeUserData(user.username, username, email);
+    writeUserData(username, email);
 
     alert("Sign up successful!");
   } catch (error) {
