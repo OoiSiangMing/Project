@@ -20,7 +20,28 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault(); // Prevent the form from submitting normally
   const email = document.getElementById('loginEmail').value;
   const password = document.getElementById('loginPassword').value;
-  await login(email, password);
+  
+  try {
+    const user = await login(email, password);
+    
+    if (user) {
+      const username = await getUsernameFromEmail(email);
+      
+      if (username) {
+        document.getElementById('username').textContent = `Welcome, ${username}`;
+      } else {
+        document.getElementById('username').textContent = 'Welcome';
+      }
+      
+      // Optionally, show or hide elements based on authentication state
+      document.getElementById('userContent').style.display = 'block';
+      document.getElementById('loginContent').style.display = 'none';
+    }
+  } catch (error) {
+    console.error("Login failed:", error.message);
+    alert("Login failed. Please check your email and password.");
+  }
+
   resetForm('loginForm'); // Reset the form fields after login
 });
 

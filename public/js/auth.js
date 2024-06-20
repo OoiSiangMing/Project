@@ -67,5 +67,6 @@ async function login(email, password) {
   }
 }
 
+
 // Export functions
 export { signUp, login, getUsernameFromEmail };
