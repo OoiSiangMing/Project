@@ -1,5 +1,5 @@
 import { auth, database } from './firebase.js';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 import { ref, set, get, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 // Function to write user data to the Realtime Database
@@ -31,27 +31,12 @@ async function signUp(email, password, username) {
   }
 }
 
-// Update login function to fetch username and update HTML
+// Function to log in an existing user
 async function login(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     console.log("User logged in:", user);
-
-    // Fetch username from database
-    const userRef = ref(database, 'users/');
-    const queryRef = query(userRef, orderByChild('email').equalTo(email));
-    get(queryRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        const userData = snapshot.val();
-        const username = Object.keys(userData)[0]; // Assuming usernames are unique
-        document.getElementById('username').textContent = username;
-      } else {
-        console.error("No such user found in database");
-      }
-    }).catch((error) => {
-      console.error("Error fetching user data:", error);
-    });
 
     // Optionally, you can redirect or perform other actions here
     window.location.href = "index_user.html"; // Redirect to another page after login
@@ -63,4 +48,4 @@ async function login(email, password) {
 
 
 // Export functions
-export { signUp, login, checkAuthState };
+export { signUp, login };
