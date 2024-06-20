@@ -66,8 +66,8 @@ function checkAuthState() {
     if (user) {
       console.log("User is signed in:", user);
       // Optionally, retrieve and display user data here if needed
-      const userDisplayName = username;
-      document.getElementById('username').textContent = `Welcome, ${userDisplayName}`;
+      const username = username;
+      document.getElementById('username').textContent = `Welcome, ${username}`;
       // Show user-specific content
       document.getElementById('userContent').style.display = 'block';
       document.getElementById('loginContent').style.display = 'none';
