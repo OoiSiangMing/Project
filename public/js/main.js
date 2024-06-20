@@ -5,17 +5,25 @@ function resetForm(formId) {
   document.getElementById(formId).reset();
 }
 
-// Listen for auth state changes
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    // User is signed in, get the username
-    const username = await fetchUsernameByEmail(user.email);
-    if (username) {
-      document.getElementById('username').innerText = username;
+// Ensure the DOM is fully loaded before adding event listeners
+document.addEventListener('DOMContentLoaded', () => {
+  // Listen for auth state changes
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      console.log("User signed in:", user);
+      const username = await fetchUsernameByEmail(user.email);
+      if (username) {
+        console.log("Fetched username:", username);
+        document.getElementById('username').innerText = username;
+      } else {
+        console.log("Username not found for email:", user.email);
+      }
+    } else {
+      console.log("No user is signed in.");
     }
-  }
-});
+  });
 
+// Handle sign-up form submission
 document.getElementById('signUpForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('signUpEmail').value;
@@ -25,6 +33,7 @@ document.getElementById('signUpForm').addEventListener('submit', async (e) => {
   resetForm('signUpForm');
 });
 
+// Handle login form submission
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('loginEmail').value;
