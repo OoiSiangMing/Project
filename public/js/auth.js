@@ -13,6 +13,28 @@ function writeUserData(username, email) {
   });
 }
 
+// Function to fetch username based on email from Realtime Database
+async function getUsernameFromEmail(email) {
+  try {
+    const usersRef = ref(database, 'users');
+    const emailQuery = query(usersRef, orderByChild('email'), equalTo(email));
+    const snapshot = await get(emailQuery);
+
+    if (snapshot.exists()) {
+      const userData = snapshot.val();
+      const username = Object.keys(userData)[0]; // Get the first (and presumably only) key
+      console.log("Username retrieved:", username);
+      return username;
+    } else {
+      console.log(`No user found with email: ${email}`);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error retrieving username:", error);
+    return null;
+  }
+}
+
 // Function to sign up a new user
 async function signUp(email, password, username) {
   try {
@@ -45,61 +67,5 @@ async function login(email, password) {
   }
 }
 
-// Function to retrieve username from Realtime Database based on email
-async function getUsernameFromEmail(email) {
-  try {
-    const usersRef = ref(database, 'users');
-    const emailQuery = query(usersRef, orderByChild('email'), equalTo(email));
-    const snapshot = await get(emailQuery);
-
-    if (snapshot.exists()) {
-      const userData = snapshot.val();
-      const username = Object.keys(userData)[0]; // Get the first (and presumably only) key
-      console.log("Username retrieved:", username);
-      return username;
-    } else {
-      console.log(`No user found with email: ${email}`);
-      return null;
-    }
-  } catch (error) {
-    console.error("Error retrieving username:", error);
-    return null;
-  }
-}
-
-// Function to check the auth state and update the username
-function checkAuthState() {
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      console.log("User is signed in:", user);
-
-      // Retrieve username based on user's email
-      const email = user.email;
-      const username = await getUsernameFromEmail(email);
-
-      if (username) {
-        // Update the username element in the DOM
-        document.getElementById('username').textContent = username;
-      } else {
-        // Handle case where username is not found (optional)
-        document.getElementById('username').textContent = 'Guesttest';
-      }
-
-      // Optionally, perform other actions based on user authentication state
-      // Show user-specific content, hide login content, etc.
-      document.getElementById('userContent').style.display = 'block';
-      document.getElementById('loginContent').style.display = 'none';
-    } else {
-      console.log("No user is signed in.");
-
-      // Hide user-specific content, show login content
-      document.getElementById('userContent').style.display = 'none';
-      document.getElementById('loginContent').style.display = 'block';
-    }
-  });
-}
-
-// Call checkAuthState to monitor auth state changes
-checkAuthState();
-
-export { signUp, login, checkAuthState };
+// Export functions
+export { signUp, login, getUsernameFromEmail };
