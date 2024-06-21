@@ -1,5 +1,10 @@
 import { signUp, login } from './auth.js';
 
+// Function to reset the form fields
+function resetForm(formId) {
+  document.getElementById(formId).reset();
+}
+
 // Handle sign-up form submission
 document.getElementById('signUpForm').addEventListener('submit', async (e) => {
   e.preventDefault();
