@@ -1,6 +1,6 @@
 import { auth, database } from './firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { ref, set } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+import { ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 // Function to write user data to the Realtime Database
 function writeUserData(username, email) {
@@ -38,8 +38,31 @@ async function login(email, password) {
     const user = userCredential.user;
     console.log("User logged in:", user);
 
-    // Optionally, you can redirect or perform other actions here
-    window.location.href = "index_user.html"; // Redirect to another page after login
+    // Retrieve user data from the database
+    const dbRef = ref(database);
+    const snapshot = await get(child(dbRef, `users/`));
+    if (snapshot.exists()) {
+      const usersData = snapshot.val();
+      let username = null;
+      for (const key in usersData) {
+        if (usersData[key].Email === email) {
+          username = usersData[key].Username;
+          break;
+        }
+      }
+
+      if (username) {
+        // Store the username in localStorage
+        localStorage.setItem('username', username);
+
+        // Redirect to another page after login
+        window.location.href = "index_user.html";
+      } else {
+        console.error("No user data found for this email.");
+      }
+    } else {
+      console.error("No data available.");
+    }
   } catch (error) {
     console.error("Error logging in:", error);
     alert("Login failed. Please check your email and password.");
