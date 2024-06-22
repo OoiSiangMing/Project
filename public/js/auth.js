@@ -100,5 +100,4 @@ async function login(email, password) {
   }
 }
 
-
 export { signUp, login };
