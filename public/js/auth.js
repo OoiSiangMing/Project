@@ -44,7 +44,7 @@ async function signUp(email, password, username) {
   }
 }
 
-// Function to log in an existing user
+// Function to log in an existing user and update login time
 async function login(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -65,6 +65,12 @@ async function login(email, password) {
       }
 
       if (username) {
+        // Update last login time
+        const lastLoginTime = new Date().toISOString(); // Get the current time in ISO format
+        await update(ref(database, 'users/' + username), {
+          LastLoginTime: lastLoginTime
+        });
+
         // Store the username in localStorage
         localStorage.setItem('username', username);
 
