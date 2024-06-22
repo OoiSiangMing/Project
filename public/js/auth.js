@@ -67,7 +67,18 @@ async function login(email, password) {
 
       if (username) {
         // Update last login time
-        const lastLoginTime = new Date().toISOString(); // Get the current time in ISO format
+        const formatter = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Kuala_Lumpur',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+        });
+        const lastLoginTime = formatter.format(new Date());
+
         await update(ref(database, 'users/' + username), {
           LastLoginTime: lastLoginTime
         });
