@@ -19,7 +19,8 @@ function writeUserData(username, email) {
   set(ref(database, 'users/' + username), {
     Username: username,
     Email: email,
-    SignupTime: signupTime // Add the sign-up time
+    SignupTime: signupTime, // Add the sign-up time
+    LastLoginTime: 0 // Set initial LastLoginTime to 0
   }).then(() => {
     console.log("User data written to database");
   }).catch((error) => {
