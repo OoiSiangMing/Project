@@ -4,7 +4,18 @@ import { ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/f
 
 // Function to write user data to the Realtime Database
 function writeUserData(username, email) {
-  const signupTime = new Date().toISOString(); // Get the current time in ISO format
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Kuala_Lumpur',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
+  const signupTime = formatter.format(new Date());
+
   set(ref(database, 'users/' + username), {
     Username: username,
     Email: email,
