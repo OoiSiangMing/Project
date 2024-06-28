@@ -8,7 +8,8 @@
 }
 
 body {
-	background: linear-gradient(90deg, #54567a, #8f92cf);		
+	background: linear-gradient(90deg, #54567a, #8f92cf);	
+	overflow: hidden; /* Prevent scrolling */	
 }
 
 .container {
